@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 @WebServlet("/module1")
 public class Module1Servlet extends HttpServlet {
     private String message;
+
     public void init() {
         message = "Модуль 1";
     }
@@ -31,6 +32,11 @@ public class Module1Servlet extends HttpServlet {
                     + "</td></tr>");
 
         out.println("</table>");
+
+        out.println("<p>");
+        out.println("<a href=\"/module1\"><button><- Предыдущий модуль</button></a>");
+        out.println("<a href=\"/module2\"><button>Следующий модуль -></button></a>");
+        out.println("</p>");
 
         out.println("</body></html>");
     }

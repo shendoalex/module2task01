@@ -24,6 +24,11 @@ public class Module2Servlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
 
+        out.println("<p>");
+        out.println("<a href=\"/module1\"><button><- Предыдущий модуль</button></a>");
+        out.println("<a href=\"/module3\"><button>Следующий модуль -></button></a>");
+        out.println("</p>");
+
         out.println("</body></html>");
     }
 
