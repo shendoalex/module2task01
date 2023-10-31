@@ -1,6 +1,7 @@
 package by.javaguru.git.mergeexperience;
 
 
+import by.javaguru.git.mergeexperience.topics.Module1Topics;
 import by.javaguru.git.mergeexperience.topics.Module3Topics;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -26,14 +27,18 @@ public class Module3Servlet extends HttpServlet {
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
         out.println("<table>");
-        for (Module3Topics value : Module3Topics.values())
+        for (Module3Topics value : Module3Topics.values()) {
+            String descriptionLink = "under-construction.jsp";
+            if (value.isDescriptionAvailable()) {
+                descriptionLink = value.getDescriptionLink();
+            }
             out.println("<tr><td>"
                     + value.getOrder() + "</td><td>"
                     + value.getTopic() + "</td><td>"
                     + value.getDesc()
-                    + "</td><td><a href=''>Подробнее</a>"
+                    + "</td><td><a href=" + descriptionLink + ">Подробнее</a>"
                     + "</td></tr>");
-
+        }
         out.println("</table>");
 
         out.println("<p>");

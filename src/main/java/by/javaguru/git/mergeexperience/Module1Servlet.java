@@ -23,14 +23,18 @@ public class Module1Servlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
 
         out.println("<table>");
-        for (Module1Topics value : Module1Topics.values())
+        for (Module1Topics value : Module1Topics.values()) {
+            String descriptionLink = "under-construction.jsp";
+            if (value.isDescriptionAvailable()) {
+                descriptionLink = value.getDescriptionLink();
+            }
             out.println("<tr><td>"
                     + value.getOrder() + "</td><td>"
                     + value.getTopic() + "</td><td>"
                     + value.getDesc()
-                    + "</td><td><a href=''>Подробнее</a>"
+                    + "</td><td><a href=" + descriptionLink + ">Подробнее</a>"
                     + "</td></tr>");
-
+        }
         out.println("</table>");
 
         out.println("<p>");
